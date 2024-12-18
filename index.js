@@ -1,0 +1,21 @@
+const express = require('express');
+const app = express();
+
+
+// Middleware for parsing JSON request bodies   
+app.use(express.json());
+
+
+app.get('/', function() {
+    return res.status(200).send('Hello, Welcome to homepage.');
+})
+
+
+app.get('/profile', function() {
+    return res.status(200).send('Hello, Welcome to Profile page.');
+})
+
+
+app.listen(3000, function() {
+    console.log('Server listening on port 3000.');   
+});
