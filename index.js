@@ -21,6 +21,11 @@ app.get('/orders', function(req, res) {
 })
 
 
+app.get('/new', function(req, res) {
+    return res.status(200).send('Hello, Welcome to New page.');
+})
+
+
 app.listen(3000, function() {
     console.log('Server listening on port 3000.');   
 });
