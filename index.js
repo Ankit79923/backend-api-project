@@ -6,12 +6,12 @@ const app = express();
 app.use(express.json());
 
 
-app.get('/', function() {
+app.get('/', function(req, res) {
     return res.status(200).send('Hello, Welcome to homepage.');
 })
 
 
-app.get('/profile', function() {
+app.get('/profile', function(req, res) {
     return res.status(200).send('Hello, Welcome to Profile page.');
 })
 
