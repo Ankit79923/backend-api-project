@@ -27,6 +27,7 @@ app.get('/new', function(req, res) {
 })
 
 app.get('/book', function(req, res) {
+    console.log('New request received for /book route.');
     return res.status(200).send('Hello, Welcome to Book Store.');
 })
 
