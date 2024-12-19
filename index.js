@@ -32,6 +32,11 @@ app.get('/book', function(req, res) {
 })
 
 
+app.post('/house', function(req, res) {
+    console.log('New POST request received for /house route.');
+    return res.status(201).send('Welcome, House booked successfully.');
+})
+
 app.listen(3000, function() {
     console.log('Server listening on port 3000.');   
 });
