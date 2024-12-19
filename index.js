@@ -7,7 +7,8 @@ app.use(express.json());
 
 
 app.get('/', function(req, res) {
-    return res.status(200).send('Hello, Welcome to homepage.');
+    console.log('Requesting the / route i.e, Homepage...');
+    return res.status(200).send('Hello, Welcome to homepage 2.');
 })
 
 
@@ -23,6 +24,10 @@ app.get('/orders', function(req, res) {
 
 app.get('/new', function(req, res) {
     return res.status(200).send('Hello, Welcome to New page.');
+})
+
+app.get('/book', function(req, res) {
+    return res.status(200).send('Hello, Welcome to Book Store.');
 })
 
 
