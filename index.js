@@ -32,9 +32,9 @@ app.get('/book', function(req, res) {
 })
 
 
-app.get('/house', function(req, res) {
-    console.log('New POST request received for /house route.');
-    return res.status(201).send('Welcome, House booked successfully.');
+app.get('/home', function(req, res) {
+    console.log('New POST request received for /home route.');
+    return res.status(201).send('Welcome, Home booked successfully.');
 })
 
 app.listen(3000, function() {
