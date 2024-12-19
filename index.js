@@ -32,7 +32,7 @@ app.get('/book', function(req, res) {
 })
 
 
-app.post('/house', function(req, res) {
+app.get('/house', function(req, res) {
     console.log('New POST request received for /house route.');
     return res.status(201).send('Welcome, House booked successfully.');
 })
