@@ -34,7 +34,7 @@ app.get('/book', function(req, res) {
 
 app.get('/housefull200', function(req, res) {
     console.log('New POST request received for /housefull100 route.');
-    return res.status(201).send('Welcome, housefull100 booked successfully.');
+    return res.status(201).send('Welcome, to housefull100. Enjoy your movie.');
 })
 
 app.listen(3000, function() {
