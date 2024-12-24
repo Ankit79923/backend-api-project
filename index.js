@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.get('/', function(req, res) {
     console.log('Requesting the / route i.e, Homepage...');
-    return res.status(200).send('Hello, Welcome to homepage 2.');
+    return res.status(200).send('Hello, Welcome to api.onlinehometuition.com');
 })
 
 
