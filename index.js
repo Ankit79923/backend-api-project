@@ -40,7 +40,7 @@ app.get('/housefull200', function(req, res) {
 
 
 app.get('/msg', function(req, res) {
-    return res.status(200).json({"message": process.env.MSG});
+    return res.status(200).json({"message": process.env.MSG, "update": "Little change done."});
 })
 
 
