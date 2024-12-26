@@ -1,24 +1,25 @@
-name: Deploy
+name: Node.js CI
 
 on:
   push:
-    branches:
-      - main # or the branch you want to deploy from
+    branches: [ "main" ]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build:
+
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: SSH and deploy
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
-        run: |
-          echo "$SSH_PRIVATE_KEY" > keyfile 
-          chmod 600 keyfile
-          mkdir -p ~/.ssh
-          cp known_hosts ~/.ssh/known_hosts
-          ssh -t -i keyfile ubuntu@ec2-3-110-136-83.ap-south-1.compute.amazonaws.com "bash ~/deploy.sh"
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
