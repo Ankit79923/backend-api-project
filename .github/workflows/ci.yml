@@ -21,9 +21,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: touch .env
-    - run: echo "${{ secrets.PROD_ENV_FILE }}" > .env
-    - run: pm2 restart BackendAPI
-
-    
+    - run: |
+          npm ci
+          touch .env
+          echo "${{ secrets.PROD_ENV_FILE }}" > .env
+          pm2 restart BackendAPI
