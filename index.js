@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
 
 
 // Middleware for parsing JSON request bodies   
@@ -36,6 +37,12 @@ app.get('/housefull200', function(req, res) {
     console.log('New POST request received for /housefull100 route.');
     return res.status(201).send('Welcome, to housefull100. Enjoy your movie.');
 })
+
+
+app.get('/msg', function(req, res) {
+    return res.status(200).json({"message": process.env.MSG});
+})
+
 
 app.listen(3000, function() {
     console.log('Server listening on port 3000.');   
